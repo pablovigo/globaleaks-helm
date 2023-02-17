@@ -25,9 +25,16 @@ spec:
             memory: {{ .Values.resources.requests.memory }}
         env:
         - name: TENANT
-          value: "{{ .Release.Name }}"
+          value: "{{ .Values.global.tenant }}"
         ports:
         - name: http
           containerPort: 80
         - name: https
           containerPort: 443
+        volumeMounts:
+          - name: data
+            mountPath: /var/globaleaks/
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ .Values.global.tenant }}-pvc
