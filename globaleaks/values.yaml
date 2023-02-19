@@ -2,14 +2,11 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 global:
-  tenant: bustiaetica
+  tenant: XXXXX
 
   persistence:
     enabled: true
     size: 10Gi
-
-  tor:
-    enabled: true
 
 replicaCount: 1
 
@@ -30,7 +27,3 @@ resources:
   requests:
     cpu: 500m
     memory: 524Mi
-
-persistence:
-  enabled: true
-  existingClaim: <claim-name>
