@@ -1,8 +1,9 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: {{ .Release.Name }}-globaleaks
+  name: globaleaks-{{ .Release.Name }}
 spec:
+  serviceName: globaleaks-{{ .Release.Name }}
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
